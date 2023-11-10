@@ -1,51 +1,35 @@
-= {lab_name}
+== What is NetworkManager?
 
-The `lab_name` var, known as an asciidoc attribute, above was set in `./content/antora.yml` and can be used to set the lab_name or title of your content.
-You are both free to change its value and if you prefer to use a different var name, you can change the value of `lab_name`, for example to `title` in `./content/antora.yml` and then reference it in your content as `\{title}`.
-me
+NetworkManager is a great tool for creating and modifying network
+connections. The `+nmcli+` command is how you will be running
+NetworkManager in this lab. Any changes made with `+nmcli+` are
+persistent configuration file changes. This lab will give you an
+overview of some of the most common operations you would run using this
+tool.
 
-== Variables
+== Listing network devices
 
-Other vars can also be set there, such as `ssh_user` and `ssh_password`, and referenced inline in the lab content by using the `\{foo}` syntax.
+Before you can set up a connection, you have to know what hardware is
+available for you to use. To show what network devices this system has
+with `+nmcli+`, run
 
-This is another var, or asciidoc attribute, from `./content/antora.yml` {my_var}
-
-== Writing your lab
-
-Whatever type of content you are writing we'll refer to your *content* as "your lab" in this document.
-
-=== Lab structure
-
-
-Wether you are writing a lab
-
-* First, we will build a monolithic application already compiled as RPM packages and put it into a container. This will allow us to deploy the application, copy it between machines, and update it separately from the operating system. This process affords us a portable and easily maintained component instead of tightly coupling the application with your operating system maintenance.
-
-* In closing we will build a second container on a different operating system version that makes an application not packaged into RPMs. This will be similar to a web application deployment, positioning the correct files at the right locations. To do this, we will pull a project from GitHub and position the component files within our container image. The purpose of this is to achieve a portable application container that can deploy on several different versions of Red Hat Enterprise Linux. This also provides the benefit of decoupling your application maintenance, which would all happen by building new containers versus operating system maintenance. The container is no longer reliant on the operating system installed on the machine where the application is deployed.
-
-
-. Now let's examine this cluster a bit more by describing the cluster (the `$GUID` environment variable is already set for you so you can immediately describe your individual cluster):
-+
-[source,sh,role=execute]
+[source,bash]
 ----
-podman ps
-----
-+
-.Sample Output
-[source,texinfo,subs="attributes"]
-----
-CONTAINER ID  IMAGE                        COMMAND           CREATED      STATUS      PORTS                 NAMES
-2dcfee9e50c4  docker.io/library/httpd:2.4  httpd-foreground  3 hours ago  Up 3 hours  0.0.0.0:8080->80/tcp  showroom-httpd
+nmcli device
 ----
 
+This will show a list of network interfaces available on the system as
+well as how they are configured, similar to the following:
 
+[source,bash]
+----
+DEVICE  TYPE      STATE         CONNECTION
+enp1s0  ethernet  connected     enp1s0
+enp7s0  ethernet  disconnected  --
+lo      loopback  unmanaged     --                                          --
+----
 
+This output shows that there are three devices: *enp1s0* and *enp7s0*
+(ethernet devices) as well as *lo* (the loopback device).
 
-
-
-
-
-=== Lab Access
-
-The terminal window to your right is *already* logged into the lab environment as the `{ssh_user}` user via `ssh`. 
-All steps of this lab are to be completed as the `{ssh_user}` user.
+Next, you will make your own connection on this host.

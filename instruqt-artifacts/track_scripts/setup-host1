@@ -1,0 +1,27 @@
+#!/bin/bash
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+    echo "Waiting for Instruqt to finish booting the VM"
+    sleep 1
+done
+
+# systemctl enable --now cockpit.socket
+
+subscription-manager config --rhsm.manage_repos=1
+subscription-manager register --activationkey=${ACTIVATION_KEY} --org=12451665 --force
+
+echo "Adding wheel" > /root/post-run.log
+usermod -aG wheel rhel
+
+echo "setting password" >> /root/post-run.log
+echo redhat | passwd --stdin rhel
+
+dnf install -y nc
+
+systemctl enable --now libvirtd
+
+
+echo "${SSHKEY}" > r4ekey
+chmod 600 r4ekey
+
+virsh attach-interface --domain vm1 --type network --source default --model virtio

@@ -1,0 +1,31 @@
+slug: networking-basics
+id: qwgqhuzajkj0
+title: Networking Basics
+description: |
+  # Overview:
+
+  NetworkManager is a great tool for creating and modifying networks. This lab
+  will walk you through creating your own network connection from scratch and
+  modifying key parameters to control how that network connection behaves.
+
+  # Goal:
+
+  After completing this scenario, users will be able to configure the IP, hostname,
+  and DNS for a connection using `nmcli`.
+
+  # Concepts included in this scenario:
+  * Learn NetworkManager (`nmcli`) syntax
+  * Configure a new dynamic IP connection using DHCP
+  * Update this connection to use static IP address assignment
+  * Validate and configure DNS server settings
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+level: beginner
+tags:
+- rhel
+owner: rhel
+developers:
+- myee@redhat.com
+private: true
+published: false
+show_timer: true
+checksum: "4755985139382097144"

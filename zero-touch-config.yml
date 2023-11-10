@@ -5,12 +5,17 @@ antora:
   dir: www
   modules:
     - name: index
-      label: "Module 1"
+      label: Module 1
     - name: module-02
-      label: "Module 2"
+      label: Module 2
     - name: module-03
-      label: "Module 3"
-
+      label: Module 3
+    - name: module-04
+      label: Module 4
+    - name: module-05
+      label: Module 5
+    - name: module-06
+      label: Module 6
 tabs:
   - name: terminal
     port: 443
