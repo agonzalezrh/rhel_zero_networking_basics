@@ -19,13 +19,11 @@ the `+modify+` option:
 nmcli con modify ethernet1 ipv4.addresses 192.168.122.110
 ----
 
-____
-_NOTE:_ Modifying the ipv4 address field without specifying a subnet
+NOTE: Modifying the ipv4 address field without specifying a subnet
 mask (also called a prefix) will default to `+/32+`, or only a single IP
 address. If you wish to add a different subnet mask, for example
 `+/24+`, append it to the IP address in the `+nmcli con modify+`
 command.
-____
 
 [source,bash]
 ----
@@ -44,11 +42,9 @@ command can be used to configure the gateway:
 nmcli con modify ethernet1 ipv4.gateway 192.168.122.1
 ----
 
-____
-_NOTE:_ You can combine multiple modifications into a single command by
+NOTE: You can combine multiple modifications into a single command by
 appending each additional property you want to change. For example, this
 command would accomplish all of the changes from this page in one line:
-____
 
 [source,bash]
 ----

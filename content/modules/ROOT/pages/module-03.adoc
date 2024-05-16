@@ -17,7 +17,7 @@ device the interface uses. Below is an example of this command with each
 of the values explained:
 
 .con add breakdown
-image::../assets/conAddBreakdown.png[con add breakdown]
+image::../assets/images/conAddBreakdown.png[con add breakdown]
 
 Run the command to configure this dynamic connection on *host1*:
 
@@ -33,10 +33,8 @@ You should see a confirmation message similar to
 Connection 'ethernet1' (9957b40e-be3a-4291-b466-e591322aba51) successfully added.
 ----
 
-____
-_NOTE:_ NetworkManager will act as the DHCP client when adding a
+NOTE: NetworkManager will act as the DHCP client when adding a
 connection without a specified address.
-____
 
 The advantage of using `+nmcli+` is that configuration changes persist.
 
@@ -48,7 +46,7 @@ nmstatectl show enp7s0
 ----
 
 .nmstatdhcp
-image::../assets/nmstatedhcp.png[nmstatdhcp]
+image::../assets/images/nmstatedhcp.png[nmstatdhcp]
 
 Some situations call for an IP that will not change over time, or a
 static IP. The next page will walk you through turning this dynamic
