@@ -46,7 +46,7 @@ nmstatectl show eth1
 ----
 
 .nmstatdhcp
-image::nmstatedhcp.png[nmstatdhcp]
+image::nmstatedhcp-2.png[nmstatdhcp]
 
 Some situations call for an IP that will not change over time, or a
 static IP. The next page will walk you through turning this dynamic
