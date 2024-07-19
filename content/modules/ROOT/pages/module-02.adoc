@@ -6,12 +6,12 @@ settings into an easily readable yaml file.
 
 To install NMState, run the following command in the CLI.
 
-[source,bash]
+[source,bash,subs="+macros,+attributes",role=execute]
 ----
 dnf install -y nmstate
 ----
 
 .nmstateinstall
-image::../assets/images/nmstateinstall.png[nmstateinstall]
+image::nmstateinstall.png[nmstateinstall]
 
 We’ll use NMState later on in this lab.

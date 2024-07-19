@@ -4,7 +4,7 @@ Now you will add DNS addresses using `+nmcli con modify+`. Visit
 https://www.redhat.com/sysadmin/dns-domain-name-servers[this article] to
 learn what DNS is and why it is useful.
 
-[source,bash]
+[source,bash,subs="+macros,+attributes",role=execute]
 ----
 nmcli con modify ethernet1 ipv4.dns 172.17.0.254
 ----
@@ -14,21 +14,21 @@ This modification will only show up in the proper config file,
 same way the connection was activated at the start of this lab, using
 the `+nmcli con up+` command.
 
-[source,bash]
+[source,bash,subs="+macros,+attributes",role=execute]
 ----
 nmcli con up ethernet1
 ----
 
 Now you can see these changes reflected in the connection’s config file:
 
-[source,bash]
+[source,bash,subs="+macros,+attributes",role=execute]
 ----
 grep 'nameserver' /etc/resolv.conf
 ----
 
-[source,bash]
+[source,bash,subs="+macros,+attributes",role=execute]
 ----
-nameserver 192.168.122.1
+nameserver 192.168.0.2
 nameserver 172.17.0.254
 ----
 
@@ -36,41 +36,41 @@ It is common to want multiple DNS addresses associated with a
 connection. You can add multiple DNS addresses by enclosing the set of
 addresses in quotes:
 
-[source,bash]
+[source,bash,subs="+macros,+attributes",role=execute]
 ----
 nmcli con modify ethernet1 ipv4.dns "8.8.8.8 8.8.4.4"
 ----
 
 As before, restart the connection.
 
-[source,bash]
+[source,bash,subs="+macros,+attributes",role=execute]
 ----
 nmcli con up ethernet1
 ----
 
 Now the new DNS address shows up in `+resolv.conf+`:
 
-[source,bash]
+[source,bash,subs="+macros,+attributes",role=execute]
 ----
 grep 'nameserver' /etc/resolv.conf
 ----
 
 [source,bash]
 ----
-nameserver 192.168.122.1
+nameserver 192.168.0.2
 nameserver 8.8.8.8
 nameserver 8.8.4.4
 ----
 
 NMState can also tell us that these DNS servers are active.
 
-[source,bash]
+[source,bash,subs="+macros,+attributes",role=execute]
 ----
 nmstatectl show dns
 ----
 
 .runningdns
-image::../assets/images/runningdns.png[runningdns]
+image::runningdns.png[runningdns]
 
 This is just the surface of what `+nmcli+` can modify. The
 https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-configuring_ip_networking_with_nmcli[Red

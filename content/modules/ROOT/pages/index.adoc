@@ -13,7 +13,7 @@ Before you can set up a connection, you have to know what hardware is
 available for you to use. To show what network devices this system has
 with `+nmcli+`, run
 
-[source,bash]
+[source,bash,subs="+macros,+attributes",role=execute]
 ----
 nmcli device
 ----
@@ -24,12 +24,12 @@ well as how they are configured, similar to the following:
 [source,bash]
 ----
 DEVICE  TYPE      STATE         CONNECTION
-enp1s0  ethernet  connected     enp1s0
-enp7s0  ethernet  disconnected  --
-lo      loopback  unmanaged     --                                          --
+eth0    ethernet  connected     System eth0
+lo      loopback  unmanaged     lo
+eth1    ethernet  disconnected  --
 ----
 
-This output shows that there are three devices: *enp1s0* and *enp7s0*
+This output shows that there are three devices: *eth0* and *eth1*
 (ethernet devices) as well as *lo* (the loopback device).
 
 Next, you will make your own connection on this host.

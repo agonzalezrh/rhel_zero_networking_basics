@@ -6,7 +6,7 @@ activated.
 Run the `+nmcli con up+` command to activate the static connection that
 you configured in the previous step:
 
-[source,bash]
+[source,bash,subs="+macros,+attributes",role=execute]
 ----
 nmcli con up ethernet1
 ----
@@ -14,26 +14,26 @@ nmcli con up ethernet1
 Run the following to check the ip address and dhcp settings are
 correctly configured.
 
-[source,bash]
+[source,bash,subs="+macros,+attributes",role=execute]
 ----
-nmstatectl show enp7s0 | grep -A 10 ipv4
+nmstatectl show eth1 | grep -A 10 ipv4
 ----
 
 .configuredstatic
-image::../assets/images/configuredstatic.png[configuredstatic]
+image::configuredstatic.png[configuredstatic]
 
 You can see that the address is configured with `+192.168.122.110/32+`
 with `+dhcp+` set to `+false+`, as expected.
 
 Enter the following to check the default gateway.
 
-[source,bash]
+[source,bash,subs="+macros,+attributes",role=execute]
 ----
 nmstatectl show | grep -A 10 routes
 ----
 
 .defaultgw
-image::../assets/images/defaultgw.png[defaultgw]
+image::defaultgw.png[defaultgw]
 
 The final step is to learn how to configure the DNS server addresses for
 the connection.

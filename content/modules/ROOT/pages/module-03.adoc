@@ -9,7 +9,7 @@ vs. static connections,
 https://www.redhat.com/sysadmin/static-dynamic-ip-1[this article]
 provides a great background.
 
-You will configure a dynamic IP connection on *host01*. You will use the
+You will configure a dynamic IP connection on *bastion*. You will use the
 `+nmcli con+` command with some additional arguments to specify that you
 want to `+add+` a connection, assign a connection name, choose a network
 interface to assign the connection to, and specify the type type of
@@ -17,13 +17,13 @@ device the interface uses. Below is an example of this command with each
 of the values explained:
 
 .con add breakdown
-image::../assets/images/conAddBreakdown.png[con add breakdown]
+image::conAddBreakdown.png[con add breakdown]
 
 Run the command to configure this dynamic connection on *host1*:
 
-[source,bash]
+[source,bash,subs="+macros,+attributes",role=execute]
 ----
-nmcli con add con-name ethernet1 ifname enp7s0 type ethernet
+nmcli con add con-name ethernet1 ifname eth1 type ethernet
 ----
 
 You should see a confirmation message similar to
@@ -40,13 +40,13 @@ The advantage of using `+nmcli+` is that configuration changes persist.
 
 Let’s check that the configuration has changed.
 
-[source,bash]
+[source,bash,subs="+macros,+attributes",role=execute]
 ----
-nmstatectl show enp7s0
+nmstatectl show eth1
 ----
 
 .nmstatdhcp
-image::../assets/images/nmstatedhcp.png[nmstatdhcp]
+image::nmstatedhcp.png[nmstatdhcp]
 
 Some situations call for an IP that will not change over time, or a
 static IP. The next page will walk you through turning this dynamic
