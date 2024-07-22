@@ -23,7 +23,7 @@ nmstatectl show eth1 | grep -A 10 ipv4
 image::configuredstatic-2.png[configuredstatic]
 
 You can see that the address is configured with `+192.168.122.110/32+`
-with `+dhcp+` set to `+true+`, as expected.
+with `+dhcp+` set to `+false+`, as expected.
 
 Enter the following to check the default gateway.
 
