@@ -55,7 +55,7 @@ Now the new DNS address shows up in `+resolv.conf+`:
 grep 'nameserver' /etc/resolv.conf
 ----
 
-[source,bash]
+[source,text]
 ----
 nameserver 192.168.0.2
 nameserver 8.8.8.8

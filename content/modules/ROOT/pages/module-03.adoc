@@ -28,7 +28,7 @@ nmcli con add con-name ethernet1 ifname eth1 type ethernet
 
 You should see a confirmation message similar to
 
-[source,bash]
+[source,text]
 ----
 Connection 'ethernet1' (9957b40e-be3a-4291-b466-e591322aba51) successfully added.
 ----
@@ -46,7 +46,7 @@ nmstatectl show eth1
 ----
 
 .nmstatdhcp
-image::nmstatedhcp-2.png[nmstatdhcp]
+image::nmstatdhcp-2.png[nmstatedhcp]
 
 Some situations call for an IP that will not change over time, or a
 static IP. The next page will walk you through turning this dynamic
