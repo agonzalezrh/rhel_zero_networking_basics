@@ -1,7 +1,7 @@
 == Configuring DNS
 
 Now you will add DNS addresses using `+nmcli con modify+`. Visit
-https://www.redhat.com/sysadmin/dns-domain-name-servers[this article] to
+https://www.redhat.com/sysadmin/dns-domain-name-servers[this article,window=read-later] to
 learn what DNS is and why it is useful.
 
 [source,bash,subs="+macros,+attributes",role=execute]
