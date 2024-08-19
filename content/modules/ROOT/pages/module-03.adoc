@@ -6,7 +6,7 @@ Dynamic IP configuration with DHCP is the most common way to configure a
 connection, so the first connection you make in this lab will be
 dynamic. If you want more information about when to use dynamic
 vs. static connections,
-https://www.redhat.com/sysadmin/static-dynamic-ip-1[this article]
+https://www.redhat.com/sysadmin/static-dynamic-ip-1[this article,window=read-later]
 provides a great background.
 
 You will configure a dynamic IP connection on *bastion*. You will use the
