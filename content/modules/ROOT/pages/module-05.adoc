@@ -20,7 +20,7 @@ nmstatectl show eth1 | grep -A 10 ipv4
 ----
 
 .configuredstatic
-image::configuredstatic-2.png[configuredstatic]
+image::../assets/images/configuredstatic-2.png[configuredstatic]
 
 You can see that the address is configured with `+192.168.122.110/32+`
 with `+dhcp+` set to `+false+`, as expected.
@@ -33,7 +33,7 @@ nmstatectl show | grep -A 10 routes
 ----
 
 .defaultgw
-image::defaultgw-2.png[defaultgw]
+image::../assets/images/defaultgw-2.png[defaultgw]
 
 The final step is to learn how to configure the DNS server addresses for
 the connection.
