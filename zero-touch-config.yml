@@ -22,8 +22,3 @@ tabs:
     path: /tty1
     user: root
     host: rhel
-  - name: ">_ rhel"
-    port: 443
-    path: /tty2
-    user: rhel
-    host: rhel
