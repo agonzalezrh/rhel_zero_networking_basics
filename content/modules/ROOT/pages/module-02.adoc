@@ -12,6 +12,6 @@ dnf install -y nmstate
 ----
 
 .nmstateinstall
-image::assets/images/nmstateinstall-2.png[nmstateinstall]
+image::modules/ROOT/assets/images/nmstateinstall-2.png[nmstateinstall]
 
 We’ll use NMState later on in this lab.
