@@ -17,7 +17,7 @@ device the interface uses. Below is an example of this command with each
 of the values explained:
 
 .con add breakdown
-image::assets/images/conAddBreakdown.png[con add breakdown]
+image::conAddBreakdown.png[con add breakdown]
 
 Run the command to configure this dynamic connection on *host1*:
 
@@ -46,7 +46,7 @@ nmstatectl show eth1
 ----
 
 .nmstatdhcp
-image::assets/images/nmstatdhcp-2.png[nmstatedhcp]
+image::nmstatdhcp-2.png[nmstatedhcp]
 
 Some situations call for an IP that will not change over time, or a
 static IP. The next page will walk you through turning this dynamic
