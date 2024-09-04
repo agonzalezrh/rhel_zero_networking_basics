@@ -29,8 +29,8 @@ Now you can see these changes reflected in the connection’s config file:
 grep 'nameserver' /etc/resolv.conf
 ----
 
-.Command
-[source,bash,subs="+macros,+attributes",role=execute]
+.Output
+[source,text]
 ----
 nameserver 192.168.0.2
 nameserver 172.17.0.254

@@ -12,6 +12,12 @@ you configured in the previous step:
 nmcli con up ethernet1
 ----
 
+.Output
+[source,text]
+----
+Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/7)
+----
+
 Run the following to check the ip address and dhcp settings are
 correctly configured.
 
