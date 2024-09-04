@@ -6,6 +6,7 @@ activated.
 Run the `+nmcli con up+` command to activate the static connection that
 you configured in the previous step:
 
+.Command
 [source,bash,subs="+macros,+attributes",role=execute]
 ----
 nmcli con up ethernet1
@@ -14,6 +15,7 @@ nmcli con up ethernet1
 Run the following to check the ip address and dhcp settings are
 correctly configured.
 
+.Command
 [source,bash,subs="+macros,+attributes",role=execute]
 ----
 nmstatectl show eth1 | grep -A 10 ipv4
@@ -27,6 +29,7 @@ with `+dhcp+` set to `+false+`, as expected.
 
 Enter the following to check the default gateway.
 
+.Command
 [source,bash,subs="+macros,+attributes",role=execute]
 ----
 nmstatectl show | grep -A 10 routes

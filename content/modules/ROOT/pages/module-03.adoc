@@ -21,6 +21,7 @@ image::conAddBreakdown.png[con add breakdown]
 
 Run the command to configure this dynamic connection on *host1*:
 
+.Command
 [source,bash,subs="+macros,+attributes",role=execute]
 ----
 nmcli con add con-name ethernet1 ifname eth1 type ethernet
@@ -28,6 +29,7 @@ nmcli con add con-name ethernet1 ifname eth1 type ethernet
 
 You should see a confirmation message similar to
 
+.Output
 [source,text]
 ----
 Connection 'ethernet1' (9957b40e-be3a-4291-b466-e591322aba51) successfully added.
@@ -40,6 +42,7 @@ The advantage of using `+nmcli+` is that configuration changes persist.
 
 Let’s check that the configuration has changed.
 
+.Command
 [source,bash,subs="+macros,+attributes",role=execute]
 ----
 nmstatectl show eth1
