@@ -60,6 +60,12 @@ As before, restart the connection.
 nmcli con up ethernet1
 ----
 
+.Output
+[source,text]
+----
+Connection successfully activated (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/6)
+----
+
 Now the new DNS address shows up in `+resolv.conf+`:
 
 .Command
