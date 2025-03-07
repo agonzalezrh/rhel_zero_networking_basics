@@ -48,8 +48,35 @@ Let’s check that the configuration has changed.
 nmstatectl show eth1
 ----
 
-.nmstatdhcp
-image::nmstatdhcp-2.png[nmstatedhcp]
+.Output
+[source,text]
+----
+<< OUTPUT ABRIDGED >>
+- name: eth1
+  profile-name: ethernet1
+  type: ethernet
+  driver: ena
+  state: up
+  identifier: name
+  mac-address: 0A:57:E8:BB:D4:5F
+  permanent-mac-address: 0A:57:E8:BB:D4:5F
+  mtu: 9001
+  min-mtu: 128
+  max-mtu: 9216
+  wait-ip: any
+  ipv4:
+    enabled: true
+    dhcp: true
+    address:
+    - ip: 192.168.122.228
+      prefix-length: 24
+    auto-dns: true
+    auto-gateway: true
+    auto-routes: true
+    auto-route-table-id: 0
+    dhcp-send-hostname: true
+<< OUTPUT ABRIDGED >>
+----
 
 Some situations call for an IP that will not change over time, or a
 static IP. The next page will walk you through turning this dynamic

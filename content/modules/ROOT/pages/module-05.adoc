@@ -27,8 +27,23 @@ correctly configured.
 nmstatectl show eth1 | grep -A 10 ipv4
 ----
 
-.configuredstatic
-image::configuredstatic-2.png[configuredstatic]
+.Output
+[source,text]
+----
+<< OUTPUT ABRIDGED >>
+  ipv4:
+    enabled: true
+    dhcp: false
+    address:
+    - ip: 192.168.122.110
+      prefix-length: 32
+    - ip: 192.168.122.228
+      prefix-length: 24
+  ipv6:
+    enabled: true
+    dhcp: true
+<< OUTPUT ABRIDGED >>
+----
 
 You can see that the address is configured with `+192.168.122.110/32+`
 with `+dhcp+` set to `+false+`, as expected.
@@ -41,8 +56,22 @@ Enter the following to check the default gateway.
 nmstatectl show | grep -A 10 routes
 ----
 
-.defaultgw
-image::defaultgw-2.png[defaultgw]
+.Output
+[source,text]
+----
+routes:
+  running:
+  - destination: 0.0.0.0/0
+    next-hop-interface: eth1
+    next-hop-address: 192.168.122.1
+    metric: 10
+    table-id: 30400
+  - destination: 0.0.0.0/0
+    next-hop-interface: eth0
+    next-hop-address: 192.168.0.1
+    metric: 10
+<< OUTPUT ABRIDGED >>
+----
 
 The final step is to learn how to configure the DNS server addresses for
 the connection.

@@ -10,6 +10,8 @@ learn what DNS is and why it is useful.
 nmcli con modify ethernet1 ipv4.dns 172.17.0.254
 ----
 
+This command has no expected output.
+
 This modification will only show up in the proper config file,
 `+/etc/resolv.conf+`, once the connection is restarted. This is done the
 same way the connection was activated at the start of this lab, using
@@ -51,6 +53,8 @@ addresses in quotes:
 ----
 nmcli con modify ethernet1 ipv4.dns "8.8.8.8 8.8.4.4"
 ----
+
+This command has no expected output.
 
 As before, restart the connection.
 

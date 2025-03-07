@@ -12,7 +12,16 @@ To install NMState, run the following command in the CLI.
 dnf install -y nmstate
 ----
 
-.nmstateinstall
-image::nmstateinstall-2.png[nmstateinstall]
+.Output
+[source,text]
+----
+<< OUTPUT ABRIDGED >>
+Installed products updated.
+
+Installed:
+  nmstate-2.2.39-1.el9_5.x86_64
+
+Complete!
+----
 
 We’ll use NMState later on in this lab.
