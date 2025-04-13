@@ -1,0 +1,52 @@
+---
+- name: Create inventory
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Add bastion host
+      ansible.builtin.add_host:
+        name: "{{ lookup('ansible.builtin.env', 'BASTION_HOST') }}"
+        ansible_ssh_host: "{{ lookup('ansible.builtin.env', 'BASTION_HOST') }}"
+        ansible_ssh_port: "{{ lookup('ansible.builtin.env', 'BASTION_PORT') }}"
+        ansible_ssh_user: "{{ lookup('ansible.builtin.env', 'BASTION_USER') }}"
+        ansible_ssh_pass: "{{ lookup('ansible.builtin.env', 'BASTION_PASSWORD') }}"
+- name: Demo Playbook for the ansible-runner API
+  hosts: all:!localhost
+  gather_facts: false
+  become: false
+
+  tasks:
+    - name: Simple debug task
+      ansible.builtin.debug:
+        msg: "Hello Runner"
+
+    - name: Check if module_01/setup.sh exists
+      ansible.builtin.stat:
+        path: "./{{ module_dir }}/{{ module_stage }}.sh"
+      delegate_to: localhost
+      register: r_script_test
+
+    - name: Execute setup.sh if it exists
+      when: r_script_test.stat.exists
+      script: "./{{ module_dir }}/{{ module_stage }}.sh"
+      register: r_result
+
+    - name: Output script result
+      ansible.builtin.debug:
+        var: r_result.stdout
+
+    - name: Write script result to file
+      ansible.builtin.copy:
+        content: "{{ r_result.stdout }}"
+        dest: "{{ job_info_dir }}/script.out"
+      delegate_to: localhost
+      when: r_result is defined and job_info_dir is defined
+
+    - name: Output script result
+      ansible.builtin.debug:
+        var: r_result
+
+    - name: Fail if stage was failed
+      ansible.builtin.fail:
+        msg: "Stage failed"
+      when: r_result.rc != 0

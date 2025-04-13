@@ -1,0 +1,5 @@
+---
+egress:
+  - ports:
+      - protocol: TCP
+        port: 443
