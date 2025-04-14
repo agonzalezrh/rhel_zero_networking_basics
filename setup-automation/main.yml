@@ -14,7 +14,7 @@
   hosts: all:!localhost
   gather_facts: false
   become: true
-
+  become_method: su
   tasks:
 
     - ansible.builtin.wait_for_connection:
