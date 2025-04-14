@@ -1,4 +1,5 @@
 ---
+# By default egress connections are disabled, define here the allowed ones.
 egress:
   - ports:
       - protocol: TCP
