@@ -13,8 +13,6 @@
 - name: Demo Playbook for the ansible-runner API
   hosts: all:!localhost
   gather_facts: false
-  become: true
-  become_method: su
   tasks:
 
     - ansible.builtin.wait_for_connection:
@@ -40,6 +38,7 @@
     - name: Execute setup.sh if it exists
       when: r_script_test.stat.exists
       script: "./setup-{{ ansible_host }}.sh"
+      become: true
       register: r_result
 
     - name: Output script result
