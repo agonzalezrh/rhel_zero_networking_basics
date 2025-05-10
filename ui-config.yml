@@ -19,6 +19,6 @@ antora:
 tabs:
   - name: ">_ root"
     port: 443
-    path: /tty1
-    user: root
-    host: rhel
+    path: /wetty
+  - name: gitea
+    url: https://gitea-${guid}.${domain}/
