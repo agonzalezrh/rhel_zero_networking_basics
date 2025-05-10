@@ -1,5 +1,9 @@
 ---
 # By default egress connections are disabled, define here the allowed ones.
+ingress:
+  - ports:
+      - protocol: TCP
+        port: 3000
 egress:
   - ports:
       - protocol: TCP
