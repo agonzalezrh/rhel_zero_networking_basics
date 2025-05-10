@@ -1,10 +1,67 @@
 ---
+  - name: gitea
+    image: gitea/gitea:1.16.8-rootless
+    ports:
+      - name: gitea
+        containerPort: 3000
+        protocol: TCP
+    environment:
+      GITEA__DEFAULT__RUN_MODE: dev
+      GITEA__database__DB_TYPE: sqlite3
+      GITEA__database__PATH: /data/gitea/gitea.db
+      GITEA__picture__DISABLE_GRAVATAR: "true"
+      GITEA__repository__DEFAULT_PRIVATE: "false"
+      GITEA__repository__DEFAULT_PUSH_CREATE_PRIVATE: "false"
+      GITEA__repository__ENABLE_PUSH_CREATE_ORG: "true"
+      GITEA__repository__ENABLE_PUSH_CREATE_USER: "true"
+      GITEA__repository__ONLY_ALLOW_PUSH_IF_GITEA_ENVIRONMENT_SET: "false"
+      GITEA__security__INSTALL_LOCK: "true"
+      GITEA__server__SSH_DOMAIN: http://gitea
+      GITEA__service__DISABLE_REGISTRATION: "true"
+      GITEA__service__REQUIRE_SIGNIN_VIEW: "false"
+      GITEA__webhook__ALLOWED_HOST_LIST: '*'
+    volumeMounts:
+      - name: gitea-varlib
+        mountPath: /var/lib/gitea/
+      - name: gitea-data
+        mountPath: /data/
+      - name: gitea-etc
+        mountPath: /etc/gitea
+    volumes:
+      - name: gitea-data
+        emptyDir: {}
+      - name: gitea-etc
+        emptyDir: {}
+      - name: gitea-varlib
+        emptyDir: {}
+    lifecycle:
+      postStart:
+        exec:
+          command: ["gitea", "admin", "user", "create", "--admin", "--username", "${GITEA_ADMIN_USERNAME}", "--password", "${GITEA_ADMIN_PASSWORD}", "--must-change-password=true"]
+
+    memory: 2Gi
+    services:
+      - name: gitea-https
+        ports:
+          - port: 3000
+            protocol: TCP
+            targetPort: 3000
+            name: gitea-https
+    routes:
+      - name: gitea-https
+        host: gitea
+        service: gitea-https
+        targetPort: 3000
+        tls: true
+        tls_termination: Edge
 virtualmachines:
   - name: "host1"
     image: "rhel-9.5"
     memory: "2G"
     cores: 1
     image_size: "40G"
+    packages:
+      - vim
     tags:
       - key: "AnsibleGroup"
         value: "bastions"
