@@ -8,3 +8,6 @@ egress:
   - ports:
       - protocol: TCP
         port: 443
+  - ports:
+      - protocol: TCP
+        port: 3000
