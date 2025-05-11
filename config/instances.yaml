@@ -38,7 +38,7 @@ containers:
     lifecycle:
       postStart:
         exec:
-          command: ["gitea", "admin", "user", "create", "--admin", "--username", "{{ student_name }}", "--password", "{{ student_password }}", "--must-change-password=true"]
+          command: ["gitea", "admin", "user", "create", "--admin", "--username", "gitea, "--password", "gitea", "--must-change-password=true"]
 
     memory: 2Gi
     services:
