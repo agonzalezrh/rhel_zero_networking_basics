@@ -35,10 +35,8 @@ containers:
         emptyDir: {}
       - name: gitea-varlib
         emptyDir: {}
-    lifecycle:
-      postStart:
-        exec:
-          command: ["gitea", "admin", "user", "create", "--admin", "--username", "gitea", "--password", "gitea", "--email", "dummy@dummy.com", "--must-change-password=true"]
+    commands:
+      - gitea admin user create --admin --username gitea --password gitea --email dummy@dummy.com --must-change-password=true
 
     memory: 2Gi
     services:
