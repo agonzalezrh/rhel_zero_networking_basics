@@ -36,7 +36,7 @@ containers:
       - name: gitea-varlib
         emptyDir: {}
     commands:
-      - gitea admin user create --admin --username gitea --password gitea --email dummy@dummy.com --must-change-password=true
+      - gitea admin user create --admin --username gitea --password gitea --email dummy@dummy.com --must-change-password=false
 
     memory: 2Gi
     services:
