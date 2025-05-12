@@ -41,6 +41,7 @@ containers:
           curl -X POST -H "Content-Type: application/json" -u 'gitea:gitea'
           -d '{"name": "Migration Token"}' "http://localhost:3000/api/v1/users/gitea/tokens" -o /tmp/token2
         - cat /tmp/token2 | cut -d: -f4 | cut -d, -f1 | sed 's/"//g' > /tmp/token
+        - awk -F'"' '/"sha1"/ {print $10}' /tmp/token2 > /tmp/token
         - >
           curl -X POST -H "accept: application/json" -H "Content-Type: application/json"
           -H "Authorization: token $(cat /tmp/token)" -d '{"username": "demo", "full_name": "demo", "description": "demo"}'
