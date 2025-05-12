@@ -39,8 +39,8 @@ containers:
         - gitea admin user create --admin --username gitea --password gitea --email dummy@dummy.com --must-change-password=false
         - >
           curl -X POST -H "Content-Type: application/json" -u 'gitea:gitea'
-          -d '{"name": "Migration Token"}' "http://gitea/api/v1/users/gitea/tokens" |
-          cut -d: -f4|cut -d, -f1|sed 's/"//g' > /tmp/token
+          -d '{"name": "Migration Token"}' "http://gitea/api/v1/users/gitea/tokens" -o /tmp/token2
+        - cat /tmp/token2 | cut -d: -f4 | cut -d, -f1 | sed 's/"//g' > /tmp/token
         - >
           curl -X POST -H "accept: application/json" -H "Content-Type: application/json"
           -H "Authorization: token $(cat /tmp/token)" -d '{"username": "demo", "full_name": "demo", "description": "demo"}'
