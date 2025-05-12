@@ -39,17 +39,17 @@ containers:
         - gitea admin user create --admin --username gitea --password gitea --email dummy@dummy.com --must-change-password=false
         - >
           curl -X POST -H "Content-Type: application/json" -u 'gitea:gitea'
-          -d '{"name": "Migration Token"}' "http://gitea/api/v1/users/gitea/tokens" -o /tmp/token2
+          -d '{"name": "Migration Token"}' "http://localhost:3000/api/v1/users/gitea/tokens" -o /tmp/token2
         - cat /tmp/token2 | cut -d: -f4 | cut -d, -f1 | sed 's/"//g' > /tmp/token
         - >
           curl -X POST -H "accept: application/json" -H "Content-Type: application/json"
           -H "Authorization: token $(cat /tmp/token)" -d '{"username": "demo", "full_name": "demo", "description": "demo"}'
-          "http://gitea/api/v1/orgs"
+          "http://localhost:3000/api/v1/orgs"
         - >
           curl -X POST -H "accept: application/json" -H "Content-Type: application/json"
           -H "Authorization: token $(cat /tmp/token)"
           -d '{"clone_addr": "https://github.com/ansible/ansible-examples.git", "repo_name": "ansible-examples", "owner": "demo", "uid": 2, "private": false}'
-          "http://gitea/api/v1/repos/migrate"
+          "http://localhost:3000/api/v1/repos/migrate"
     memory: 2Gi
     services:
       - name: gitea
