@@ -3,11 +3,11 @@
 ingress:
   - ports:
       - protocol: TCP
-        port: 3000
+        port: 9090
 egress:
   - ports:
       - protocol: TCP
         port: 443
   - ports:
       - protocol: TCP
-        port: 3000
+        port: 9090
