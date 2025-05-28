@@ -20,5 +20,5 @@ tabs:
   - name: ">_ root"
     port: 443
     path: /wetty
-  - name: gitea
+  - name: cockpit
     url: https://cockpit-${guid}.${domain}/
