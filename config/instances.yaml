@@ -2,8 +2,8 @@
 virtualmachines:
   - name: "host1"
     subdomain: "lab"
-    #image: "rhel-9.5"
-    image: "docker://quay.io/rhpds/poc-image-builder-cnv:centos-9-x86_64-mucloma"
+    image: "rhel-9.5"
+    #image: "docker://quay.io/rhpds/poc-image-builder-cnv:centos-9-x86_64-mucloma"
     image_type: registry
     memory: "2G"
     cores: 1
@@ -14,7 +14,7 @@ virtualmachines:
       - cockpit
     tags:
       - key: "AnsibleGroup"
-        value: "bastions,centos"
+        value: "bastions"
     networks:
       - default
     services:
