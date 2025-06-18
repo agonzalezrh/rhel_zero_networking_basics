@@ -19,6 +19,7 @@ antora:
 tabs:
   - name: ">_ root"
     port: 443
+    path: /wetty/ssh/root
+  - name: ">_ rhel"
+    port: 443
     path: /wetty
-  - name: cockpit
-    url: https://cockpit-${guid}.${domain}/
