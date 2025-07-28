@@ -6,7 +6,9 @@ virtualmachines:
     memory: "2G"
     cores: 1
     image_size: "40G"
-
+    consoles:
+      - name: terminal_host1
+        command: virsh console host1
     packages:
       - git
       - cockpit
