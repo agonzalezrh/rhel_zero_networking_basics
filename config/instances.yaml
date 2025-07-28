@@ -7,7 +7,7 @@ virtualmachines:
     cores: 1
     image_size: "40G"
     consoles:
-      - name: terminal_host1
+      - name: terminal-host1
         command: virsh console host1
     packages:
       - git
