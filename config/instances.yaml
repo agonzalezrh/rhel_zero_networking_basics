@@ -8,7 +8,7 @@ virtualmachines:
     image_size: "40G"
     consoles:
       - name: terminal-host1
-        command: virsh console host1
+        command: virtctl console host1
     packages:
       - git
       - cockpit
